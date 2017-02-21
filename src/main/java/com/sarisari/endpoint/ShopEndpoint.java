@@ -1,5 +1,7 @@
 package com.sarisari.endpoint;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +24,18 @@ public class ShopEndpoint {
 		User u = new User();
 		u.setUserid(43);
 		s.setUser(u);
-		shopDao.saveShop(s);
-		
-		
+		shopDao.saveShop(s);		
 	}
+	
+	@GetMapping("/selectstore")
+	public List<StoreOwner> selectStore(){
+		StoreOwner s = new StoreOwner();
+		User u = new User();
+		u.setUserid(21);
+		s.setUser(u);
+		List<StoreOwner> l = shopDao.selectStore(s);
+		return 	l;
+	}
+	
+	
 }

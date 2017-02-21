@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,10 +32,10 @@ public class StoreOwner {
     @JoinColumn(name = "userid")
 	private User user;
 	
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "storeOwner",fetch = FetchType.EAGER)
 	private Set<Product> product;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "storeOwner",fetch = FetchType.EAGER)
     private Set<Transaction> transaction;
 	
 	public int getStoreid() {
