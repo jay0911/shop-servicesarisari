@@ -31,10 +31,10 @@ public class StoreOwner {
     @JoinColumn(name = "userid")
 	private User user;
 	
-    @OneToMany(mappedBy = "tbl_store", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
 	private Set<Product> product;
     
-    @OneToMany(mappedBy = "tbl_store", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Transaction> transaction;
 	
 	public int getStoreid() {
