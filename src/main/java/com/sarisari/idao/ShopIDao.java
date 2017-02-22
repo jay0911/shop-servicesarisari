@@ -43,4 +43,13 @@ public class ShopIDao extends HibernateDaoSupport implements ShopDao{
 				.list();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> selectProduct(Product product) {
+		// TODO Auto-generated method stub
+		String query = "from Product";
+		return customSelectQuery(query)
+				.list();
+	}
+
 }

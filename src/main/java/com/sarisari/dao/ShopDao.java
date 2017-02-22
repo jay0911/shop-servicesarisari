@@ -9,4 +9,5 @@ public interface ShopDao {
 	public void saveShop(StoreOwner store);
 	public void saveProduct(Product product);
 	public List<StoreOwner> selectStore(StoreOwner store);
+	public List<Product> selectProduct(Product product);
 }
