@@ -34,13 +34,14 @@ public class ShopIDao extends HibernateDaoSupport implements ShopDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<StoreOwner> selectStore(StoreOwner store) {
+	public StoreOwner selectStore(StoreOwner store) {
 		// TODO Auto-generated method stub
 		String query = "from StoreOwner where userid=:userid";
 		//String query = "from StoreOwner s join fetch s.user u join fetch s.product p  where u.userid=:userid";
-		return customSelectQuery(query)
+		List<StoreOwner> storeOwnerList = customSelectQuery(query)
 				.setParameter("userid", store.getUser().getUserid())
 				.list();
+		return storeOwnerList.get(0);
 	}
 
 	@SuppressWarnings("unchecked")
